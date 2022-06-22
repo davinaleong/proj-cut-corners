@@ -5,3 +5,7 @@ This project is about me learning from [Kevin Powell](https://www.youtube.com/ke
 Tutorial video is found [here](https://www.youtube.com/watch?v=aW6qEAQSctY).
 
 Demo link coming soon!
+
+## Useful Links
+
+[Clippy](https://bennettfeely.com/clippy/) - To generate **`CSS` clip paths**

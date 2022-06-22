@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.btn-cut-corners {
+  --color: black;
+  --hover-color: white;
+  --background: white;
+  --border-color: linear-gradient(to bottom right, red, blue);
+  --border-width: 0.125em;
+  --chamfer-size: 0.5em;
+  --animation-duration: 0.5s;
+
+  cursor: pointer;
+  font-size: clamp(2rem, 1rem + 5vw, 4rem);
+  color: var(--color);
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border: 0;
+  background: var(--background);
+  transition: color var(--animation-duration) ease-in-out;
+  clip-path: polygon(
+    /* top-left 1 */ 0% var(--chamfer-size),
+    /* top-left 2 */ var(--chamfer-size) 0%,
+    /* top-right */ 100% 0,
+    /* bottom-right 1 */ 100% calc(100% - var(--chamfer-size)),
+    /* bottom-right 2 */ calc(100% - var(--chamfer-size)) 100%,
+    /* bottom-left */ 0 100%
+  );
+}
+
+.btn-cut-corners:where(:hover, :focus) {
+  color: var(--hover-color);
+}
+
+.btn-cut-corners::before,
+.btn-cut-corners::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.btn-cut-corners::before {
+  background: var(--border-color);
+  z-index: -2;
+}
+
+.btn-cut-corners::after {
+  background: var(--background);
+  z-index: -1;
+  transition: clip-path var(--animation-duration) ease-in-out;
+  clip-path: polygon(
+    /* top-left 1 */ var(--border-width)
+      calc(var(--chamfer-size) + var(--border-width) * 0.5),
+    /* top-left 2 */ calc(var(--chamfer-size) + var(--border-width) * 0.5)
+      var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    /* bottom-right 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-left */ var(--border-width) calc(100% - var(--border-width))
+  );
+}
+
+.btn-cut-corners:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* top-left 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5)),
+    /* top-left 2 */ calc(100% - var(--border-width)) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    /* bottom-right 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-left */
+      calc(100% - calc(var(--chamfer-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
+  );
+}

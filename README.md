@@ -4,7 +4,7 @@ This project is about me learning from [Kevin Powell](https://www.youtube.com/ke
 
 Tutorial video is found [here](https://www.youtube.com/watch?v=aW6qEAQSctY).
 
-Demo link coming soon!
+Link to demo [here](https://davinaleong.github.io/proj-cut-corners/).
 
 ## Useful Links
 

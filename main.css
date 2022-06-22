@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
 
+:root {
+  --color-github: #212121;
+  --color-github-hover: #ffeb3b;
+  --text-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -15,6 +20,23 @@ body {
   place-items: center;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
+}
+
+.github {
+  display: block;
+  font-size: 3rem;
+  padding: 2vw 2vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  text-shadow: var(--text-shadow);
+  color: var(--color-github);
+  transition: color 0.3s ease-in-out;
+}
+
+.github:hover {
+  color: var(--color-github-hover);
 }
 
 .btn-cut-corners {
@@ -28,6 +50,7 @@ body {
 
   cursor: pointer;
   font-size: clamp(2rem, 1rem + 5vw, 4rem);
+  font-family: "Montserrat", sans-serif;
   color: var(--color);
   position: relative;
   isolation: isolate;
